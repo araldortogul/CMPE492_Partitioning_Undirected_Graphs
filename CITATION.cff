@@ -1,0 +1,28 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Graph Partitioner
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Aral
+    family-names: Dörtoğul
+    email: araldortogul@gmail.com
+    affiliation: Boğaziçi University
+repository-code: >-
+  https://github.com/araldortogul/CMPE492_Partitioning_Undirected_Graphs
+abstract: >-
+  CMPE 492 project that proposes an integer programming
+  solution to "graph partitioning problem".
+keywords:
+  - graph
+  - partition
+  - integer
+  - programming
+  - model
+  - graph theory
+  - operations research
+  - min cut
