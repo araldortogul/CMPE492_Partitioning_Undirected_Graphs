@@ -1,0 +1,6 @@
+*.log
+*.out
+*.exe
+*.csv
+weightless_graph_partitioner
+weightless_graph_partitioner/

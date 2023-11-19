@@ -8,8 +8,8 @@ CLIB     = -L$(GUROBI_HOME)/lib -lgurobi100
 CPPLIB   = -L$(GUROBI_HOME)/lib -lgurobi_c++ -lgurobi100
 
 
-all: mip
+all: weightless_graph_partitioner
 
-mip: mip1_c++.cpp
-	$(CPP) $(CARGS) -o mip1 mip1_c++.cpp -I$(INC) $(CPPLIB) -lm
+weightless_graph_partitioner: weightless.cpp
+	$(CPP) $(CARGS) -o weightless_graph_partitioner weightless.cpp -I$(INC) $(CPPLIB) -lm
 	
