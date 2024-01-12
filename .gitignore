@@ -4,3 +4,5 @@
 *.csv
 weightless_graph_partitioner
 weightless_graph_partitioner/
+
+.DS_Store
