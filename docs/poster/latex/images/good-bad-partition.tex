@@ -1,0 +1,56 @@
+\begin{center}
+	\begin{tikzpicture}[part1/.style={draw=green2, line width=1mm, circle, inner sep=3mm, fill=green2!50},
+		part2/.style={draw=pink2!60, line width=1mm, circle, inner sep=3mm, fill=pink2!30},
+		edge/.style={very thick}, cut/.style={dashed, gray}]
+
+		\node[part1] (1-1) {1};
+		\node[part1, below = 2 of 1-1] (1-2) {2};
+		\node[part1, below right = 1.4 and 2 of 1-2] (1-3) {3};
+		\node[part2, above right = 2 and 2 of 1-3] (1-4) {5};
+		\node[part2, above right = 1 and 1 of 1-4] (1-5) {7};
+		\node[part2, above left = 2 and 1 of 1-5] (1-6) {6};
+		\node[part2, below right = 0.5 and 2.5 of 1-1] (1-7) {4};
+
+		\draw[cut] (1-1) -- (1-7);
+		\draw[edge] (1-1) -- (1-2);
+		\draw[edge] (1-1) -- (1-3);
+		\draw[cut] (1-2) -- (1-7);
+		\draw[cut] (1-3) -- (1-4);
+		\draw[cut] (1-3) -- (1-7);
+		\draw[edge] (1-4) -- (1-6);
+		\draw[edge] (1-5) -- (1-6);
+		\draw[cut] (1-1) -- (1-6);
+		\coordinate[above right = 1 and 1.7 of 1-1] (c1);
+		\coordinate[above right = 0 and 1 of 1-3] (c2);
+
+		\draw[loosely dotted, very thick] (c1) to[bend right=45] (c2);
+		\coordinate (center1) at ($ (1-2)!.5!(1-5) $);
+		\node[below = 5 of center1, align=center] {\large Bad partition\\(5 cuts)};
+		\node[part1,right = 12 of 1-1] (2-1) {1};
+		\node[part1, below = 2 of 2-1] (2-2) {2};
+		\node[part1, below right = 1.4 and 2 of 2-2] (2-3) {3};
+		\node[part2, above right = 2 and 2 of 2-3] (2-4) {5};
+		\node[part2, above right = 1 and 1 of 2-4] (2-5) {7};
+		\node[part2, above left = 2 and 1 of 2-5] (2-6) {6};
+		\node[part1, below right = 0.5 and 2.5 of 2-1] (2-7) {4};
+
+		\draw[edge] (2-1) -- (2-7);
+		\draw[edge] (2-1) -- (2-2);
+		\draw[edge] (2-1) -- (2-3);
+		\draw[edge] (2-2) -- (2-7);
+		\draw[cut] (2-3) -- (2-4);
+		\draw[edge] (2-3) -- (2-7);
+		\draw[edge] (2-4) -- (2-6);
+		\draw[edge] (2-5) -- (2-6);
+		\draw[cut] (2-1) -- (2-6);
+
+		\coordinate[above left  = -0.5 and 2.5 of 2-6] (c3);
+		\coordinate[below left  = 1.8 and .8 of 2-4] (c4);
+
+		\draw[loosely dotted, very thick] (c3) to [bend left=20] (c4);
+		\coordinate (center2) at ($ (2-2)!.5!(2-5) $);
+		\node[below = 5 of center2, align=center] {\large Good partition\\(2 cuts)};
+\end{tikzpicture}
+
+{\small Figure 1: Different partitions of a graph}
+\end{center}

@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage[a0paper, landscape]{geometry}
+\usepackage[poster]{tcolorbox}
+\usepackage{anyfontsize}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{optidef}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{calc}
+\usepackage{adjustbox}
+\usepackage[backend=biber]{biblatex}
+\bibliography{references}
+
+\usetikzlibrary{positioning, arrows.meta, calc}
+
+\pagestyle{empty}
+
+\definecolor{myblue}{RGB}{190, 230, 246}
+\definecolor{boundark}{RGB}{18,41,93}
+\definecolor{boun2}{RGB}{65,134,198}
+\definecolor{green2}{RGB}{134, 198, 65}
+\definecolor{darkgreen2}{RGB}{107, 158, 52}
+\definecolor{pink2}{RGB}{198, 65, 134}
+
+
+
+\begin{document}
+\begin{tcbposter}[
+coverage = {spread,
+left=1cm,% Adjust the left margin
+right=1cm,  % Adjust the right margin
+top=1cm,    % Adjust the top margin
+bottom=1cm, % Adjust the bottom margin
+},
+poster = {showframe={false},columns=4,rows=5,
+},
+fontsize = 36pt,
+boxes = {
+    titlerule=2mm,
+    titlerule style={myblue,
+        %arrows = {Hooks[arc=270, shorten<= 5cm]-Hooks[arc=270, shorten >= 5cm]}
+        },
+    arc=3mm,
+    frame hidden,
+    coltitle=boundark,
+    colback=white,
+    opacityback=0.75,
+    fonttitle=\bfseries\Large,
+    colupper=boundark
+}
+]
+% Here, we insert the poster content later
+\posterbox[blankest,
+height=11cm,
+halign=center,
+valign=center,
+fontupper=\bfseries,
+interior engine=path,
+underlay={
+    \node[right,inner sep=0pt,outer sep=0pt] at (frame.west) {\includegraphics[height=9cm]{images/boun_logo}};
+    \node[left,inner sep=0pt,outer sep=0pt] at (frame.east) {\includegraphics[height=9cm]{images/boun_logo}};
+},
+]
+{
+name=title,column=1,span=4,below=top,
+}{
+{\huge Partitioning Undirected Graphs}\\[8mm]
+{\Large Aral Dörtoğul}\\[5mm]
+{\large Advisor: Prof. Can Özturan}\\[8mm]
+{\large Boğaziçi University Computer Engineering Department}
+}
+
+\input{problem-definition}
+\input{methodology}
+\input{motivation}
+
+\posterbox[adjusted title=References, fit,fit basedim=30pt]
+  {name=references,column=2, span=2, above= bottom}{
+  \printbibliography[heading=none]
+}
+
+\input{IP-methods}
+
+\input{model}
+\input{results}
+
+\end{tcbposter}
+\end{document}

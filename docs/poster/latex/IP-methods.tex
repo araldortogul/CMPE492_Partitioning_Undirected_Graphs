@@ -1,0 +1,24 @@
+% Methodology
+\posterbox[adjusted title=How to Solve IP Models?]
+  {name=ip-methods, column=2, between = title and references}{
+    \vspace{1cm}
+    \section{Branch and Bound}
+
+    \begin{itemize}
+        \item Tree-based recursive solution algorithm.
+    \end{itemize}
+    \input{images/branch-and-bound}
+    \section{Cutting Plane}
+    \begin{itemize}
+        \item Iteratively refines the feasible region.
+        \input{images/cutting-plane}
+    \end{itemize}
+  \section{Gurobi}
+    \begin{itemize}
+        \item Parallel optimization solver
+        \item Uses both branch \& bound and cutting plane.
+        \item Efficient for linear, integer, quadratic programming.
+        \item Gurobi is used in the software~\cite{dortogul}.
+    \end{itemize}
+  }
+

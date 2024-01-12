@@ -1,0 +1,21 @@
+% Motivation
+\posterbox[adjusted title=Motivation]{name=motivation, column=1, between=problem-definition and methodology, span=1}{
+\vspace{1cm}
+\begin{itemize}
+    \item It is usually better to divide the data into partitions that have \textit{equal load} so that algorithms on data can be operated in a parallel fashion by multiple processors.
+    \item Parallelism brings the problem of interprocessor communication, which is time consuming.
+    \item It is crucial to divide the data in a way that \textit{the communication between processors is minimized}.
+    \item This can be modeled as a \textbf{graph partitioning problem}.
+\end{itemize}
+\vspace{2cm}
+\begin{center}
+\begin{tikzpicture}
+    \node[draw, color=boundark, line width=0.7mm, rounded corners=1cm, minimum width=5mm, fill=myblue!30, inner sep=10mm] (p1) {Process 1};
+    \node[draw, color=boundark, line width=0.7mm, rounded corners=1cm, minimum width=5mm, fill=myblue!30, inner sep=10mm, right = 10cm of p1] (p2) {Process 2};
+    \draw[Latex-Latex, line width=2mm, color=boundark] (p1) -- (p2);
+    \coordinate (mid) at ($(p1)!0.5!(p2)$);
+    \node[below = 3cm of mid] (text) {Minimize interprocessor communication!};
+    \draw[-Latex, line width=4pt, shorten >=3mm] (text) -- (mid);
+\end{tikzpicture}
+\end{center}
+}

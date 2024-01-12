@@ -1,0 +1,56 @@
+\posterbox[adjusted title=Integer Programming Model]
+  {name=model, column=3, between=title and references}{
+\vspace{1cm}
+\setcounter{section}{0}
+\section{Sets}
+\begin{itemize}
+	\item \( V = \left\{ 1,\dots,n \right\}  \): the set of vertices.
+\end{itemize}
+
+\section{Parameters}
+\begin{itemize}
+	\item \( w_{ij} =\) weight of edge \(i\)-\(j\),\hspace{1cm}\(\forall i,j \in V,\hspace{1cm}i<j\)
+\end{itemize}
+
+\section{Decision Variables}
+\begin{itemize}
+	\item \( x_{ij} = \begin{cases}
+		1, &\text{edge from \( i \) to \( j \) is ``cut''}\\
+		0, & \text{otherwise}
+	\end{cases},\hspace{5mm}\parbox{49mm}{\centering \(\forall i,j \in V\)\\\(i<j\)\\\(w_{ij} \neq 0\)}\)
+ 
+	\item \( p_i = \begin{cases}
+		1, &\text{vertex \( i \) is in partition \#1}\\
+		0, & \text{vertex \( i \) is in partition \#0}
+	\end{cases},\hspace{1cm}\forall i \in V \)
+\end{itemize}
+
+\section{Objective Function}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[draw=boundark, rectangle, line width=0.7mm, fill= myblue!30, inner sep=12mm, minimum width=26cm, rounded corners=1cm]{\large \(\min{Z} = \displaystyle\sum_{i=1}^{n-1} \displaystyle\sum_{j\in V | i<j, w_{ij} \neq 0} w_{ij} \times x_{ij}\)};
+\end{tikzpicture}
+\end{center}
+
+\section{Constraints}
+
+\begin{enumerate}
+    \item Adjacent nodes are in the same partition
+    \begin{itemize}
+        \item \(p_i - p_j \le x_{ij} \hspace{2cm} \forall i,j \in V,\hspace{1cm}i<j\hspace{1cm}w_{ij} \neq 0\)
+        \item \(p_i - p_j \ge -  x_{ij} \hspace{1cm}\forall i,j \in V,\hspace{1cm}i<j\hspace{1cm}w_{ij} \neq 0\)
+    \end{itemize}
+
+    \item Equal partition sizes
+    \begin{itemize}
+        \item \(\displaystyle\sum_{i=1}^{n} p_i = \left \lfloor \frac{n}{2}  \right \rfloor\)
+    \end{itemize}
+
+    \item Binary variable constraints
+    \begin{itemize}
+        \item \(x_{ij} =\left\{ 0,1 \right\} \hspace{1cm}\forall i,j \in V,\hspace{1cm}i<j\hspace{1cm}w_{ij} \neq 0\)
+        \item \(p_i =\left\{ 0,1 \right\} \hspace{1cm}\forall i \in V\)
+    \end{itemize}
+\end{enumerate}
+}

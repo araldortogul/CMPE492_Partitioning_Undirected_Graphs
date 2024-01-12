@@ -1,0 +1,36 @@
+\begin{center}
+\begin{tikzpicture}[]
+	\draw[step=3cm, gray, line width=0.2mm] (0,0) grid (13.5cm,10.5cm);
+    \fill[myblue, opacity=0.3] (3.9cm, 9.9cm) -- (0,6cm) -- (0,0) -- (6.375cm,0cm) -- cycle;
+	
+	\draw[->, line width=0.8mm] (0,-3cm) -- (0,15cm) node[left] {\( x_2 \)};
+	\draw[boun2, line width=1mm] (-3cm,3cm) -- (6,12) node[above right = 1mm and 15mm, anchor=south] {\footnotesize \( -x_1 + x_2 \le 2 \)};
+ 	\draw[boun2, line width=1mm] (6.375cm,0cm) -- (3cm,13.5cm) node [above right = 2mm and 1cm, anchor=south] {\footnotesize \( 8x_1 + 2x_2 \le 17 \)};
+    \draw[->, line width=0.8mm] (-3cm,0) -- (15cm,0) node[right] {\( x_1 \)};
+ 
+	\fill [pink2] (3.9cm, 9.9cm) circle (8pt);
+
+	\draw[darkgreen2, line width=0.8mm] (0,9cm) -- (9cm,9cm) node [below right] {\footnotesize Gomory cut 1: \( x_2 \le 3 \)};
+	\draw[darkgreen2, line width=0.8mm] (0,12cm) -- (12cm,0);
+    \node at (10.5cm, 1cm) [darkgreen2, anchor=south west] {\footnotesize Gomory cut 2: \( x_1 + x_2 \le 4 \)};
+	
+	\draw[darkgreen2, line width=0.8mm] (1.5cm,13.5cm) -- (6cm,0) node [below right] {\footnotesize Gomory cut 3: \( 3x_1 + x_2 \le 6 \)};
+
+        \fill[blue] (3cm,0) circle (8pt) node [below = 2mm, black] {\footnotesize 1};
+        \fill[blue] (6cm,0) circle (8pt) node [below = 2mm, black] {\footnotesize 2};
+    
+        \fill[blue] (0, 3cm) circle (8pt) node [left, black] {\footnotesize 1};
+        \fill[blue] (0, 6cm) circle (8pt) node [left, black] {\footnotesize 2};
+
+	\foreach \position in {(3cm,3cm), (3cm,6cm)} {
+		\fill[blue] \position circle (8pt);
+	}
+	\fill[green2] (3cm,9cm) circle (8pt);
+
+	\fill[blue] (12cm,12cm) circle (8pt) node [right= 4mm, black] {\footnotesize Integer solutions};
+	\fill [pink2] (12cm,13.6cm) circle (8pt) node [right= 4mm, black] {\footnotesize Infeasible relaxed solution};
+	\fill[green2] (12cm,15.2cm) circle (8pt) node [right= 4mm, black] {\footnotesize Optimal solution};
+\end{tikzpicture}
+
+{\small Figure 3: An IP problem solved with cutting plane.}
+\end{center}

@@ -1,0 +1,21 @@
+\begin{center}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tikzpicture}[
+    node/.style={draw, rectangle, rounded corners, align=center, thick},
+    arrow/.style={arrows = {->[scale=2]},thick, shorten >= 2pt, shorten <= 2pt}]
+\node[node, fill=gray!10] (0) {\( P_0 \)\\ \( z: 19.5 \) \\ \( x_1: 1.5,  x_2: 3.0 \) };
+\node[node, below left = .5 of 0, fill=gray!20] (1) {\( P_1 \) \\ \( z: 18.4 \) \\ \( x_1: 1.0, x_2: 3.3 \)};
+\node[node, below right =.5  of 0, fill=green2!30] (2) {\( P_2 \) \\ \( z: 18.0 \) \\ \( x_1: 2.0, x_2: 2.0 \)};
+\node[node, below left = .5 of 1, fill=myblue!30] (3) {\( P_3 \) \\ \( z: 17.0 \) \\ \( x_1: 1.0, x_2: 3.0 \)};
+\node[node, below right = .5 of 1, fill=myblue!30] (4) {\( P_4 \) \\ \( z: 16.0 \)\\ \( x_1: 0.0, x_2: 4.0 \)};
+
+\draw[arrow] (0) -| node[midway, above] {\( x_1 \le 1 \)}(1);
+\draw[arrow] (0) -| node[midway, above] {\( x_1 \ge 1 \)} (2);
+\draw[arrow] (1) -| node[midway, above] {\( x_2 \le 3 \)} (3);
+\draw[arrow] (1) -| node[midway, above] {\( x_2 \le 4 \)} (4);
+\end{tikzpicture}
+\end{adjustbox}
+\vspace{5mm}
+
+{\small Figure 2: An IP problem solved with branch~and~bound.}
+\end{center}
