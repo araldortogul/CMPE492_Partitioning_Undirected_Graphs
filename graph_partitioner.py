@@ -39,7 +39,7 @@ def parseArguments ():
     parser = argparse.ArgumentParser(
                         prog=argv[0],
                         description='Bipartition undirected graphs with Gurobi.',
-                        epilog='Text at the bottom of help')
+                        epilog='All rights reserved.\nFor more info about the partitioning algorithm, please refer to the project report found in\n https://github.com/araldortogul/CMPE492_Partitioning_Undirected_Graphs')
     
     parser.add_argument('-i', '--input', metavar="INPUT FILE DIRECTORY",
                         help="Specify the input file directory for your graph. It MUST be a Matrix Market File (.mtx), and MUST NOT include any negative numbers in the adjacency matrix. Graph partitioner works both with a weighted adjacency matrix and an unweighted adjacency matrix.",
@@ -53,13 +53,13 @@ def parseArguments ():
                         default=1,
                         help="Number of random graphs to partition. Need to be specified if -r is given. (Default: 1)",
                         required=False)
-    parser.add_argument('-s', '--size', metavar="SIZE OF THE NUMBER OF RANDOM GRAPHS TO PARTITION",
+    parser.add_argument('-s', '--size', metavar="SIZE OF THE RANDOM GRAPHS TO PARTITION",
                         type=check_nonnegative,
                         help="Size (number of vertices) of the random graphs. Need to be specified if -r is given. (Default: 10)",
                         default=10,
                         required=False
                         )
-    parser.add_argument('-d', '--density', metavar="DENSITY OF THE NUMBER OF RANDOM GRAPHS TO PARTITION",
+    parser.add_argument('-d', '--density', metavar="DENSITY OF THE RANDOM GRAPHS TO PARTITION",
                         help="Density of the random graphs. Need to be specified if -r is given. (Default: 0.1)",
                         default=0.1,
                         type=check_density,
@@ -88,15 +88,10 @@ def parseArguments ():
     return args
 
 # Plots a graph
-def plotGraph(g: Graph, clusters: list, runtime: float, objVal: float, maxWeight: float, minWeight: float, name: str, plotDir: str):
+def plotGraph(g: Graph, communities: VertexClustering, runtime: float, objVal: float, maxWeight: float, minWeight: float, name: str, plotDir: str):
     # Plotting
     config['plotting.backend'] = 'matplotlib'
     config["plotting.palette"] = "rainbow"
-
-    communities = VertexClustering(g, clusters)
-
-    print("Clusters")
-    print(communities)
         
     num_communities = len(communities)
     palette = PrecalculatedPalette(["lightblue", "yellowgreen", "lightgray"])
@@ -121,8 +116,8 @@ def plotGraph(g: Graph, clusters: list, runtime: float, objVal: float, maxWeight
     plot(g,
          layout=layout,
          palette=palette,
-         vertex_size=12 if g.vcount() <= 100 else 4,
-         edge_width=[0.5 + weight / (maxWeight - minWeight) * 2 if not isWeightless else 2.5 for weight in g.es["weight"] ],
+         vertex_size=10 if g.vcount() <= 100 else 3,
+         edge_width=[1 + weight / (maxWeight - minWeight) * 2 if not isWeightless else 2.5 for weight in g.es["weight"] ],
          vertex_label_size = 7)
 
     # Add the objective value as text in the right top corner
@@ -188,7 +183,7 @@ def graphPartitioner(g: Graph, log: str, plot: bool, plotDir: str, modelName: st
     clusters = [0] * g.vcount()
 
     # Create a new model
-    m = gp.Model(modelName) if log == None else gp.Model(modelName, Env(log)) 
+    m = gp.Model(f"model-{modelName}") if log == None else gp.Model(f"model-{modelName}", Env(log))
     
     try:
         clusterVars = dict()
@@ -259,21 +254,29 @@ def graphPartitioner(g: Graph, log: str, plot: bool, plotDir: str, modelName: st
     minWeight = min(g.es["weight"])
     write_to_csv([g.vcount(), g.ecount(), g.density(), 0 if maxWeight == minWeight else 1, round(m.ObjVal,3), m.Runtime, int(m.IterCount)])
 
+    communities = VertexClustering(g, clusters)
+    print("Clusters")
+    print(communities)
+    
     if (plot):
-        plotGraph(g, clusters, m.Runtime, m.ObjVal, maxWeight, minWeight, modelName, plotDir)
+        plotGraph(g, communities, m.Runtime, m.ObjVal, maxWeight, minWeight, modelName, plotDir)
 
 
 def main():
     args = parseArguments()
 
     if (args.input != None):
-        mat3 = io.mmread('mycielskian5')
-
-        if (mat3.min() < 0):
-            print("Negative values detected in the input matrix. Graph partitioner can't parse graph with negative edge weights.")
-        else:
-            g = Graph.Weighted_Adjacency(mat3, "undirected")
-            graphPartitioner(g, args.log, args.plot, args.plotDir, "inputGraph")
+        try:
+            mat3 = io.mmread(args.input)
+            
+            if (mat3.min() < 0):
+                print("Negative values detected in the input matrix. Graph partitioner can't parse graph with negative edge weights.")
+            else:
+                g = Graph.Weighted_Adjacency(mat3, "undirected")
+                graphPartitioner(g, args.log, args.plot, args.plotDir, args.input.rstrip(".mtx"))
+                
+        except FileNotFoundError:
+            print(f"[Error]: No such file: {args.input}")
 
 
     if (args.random):
