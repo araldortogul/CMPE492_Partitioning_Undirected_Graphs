@@ -1,0 +1,262 @@
+%% This BibTeX bibliography file was created using BibDesk.
+%% https://bibdesk.sourceforge.io/
+
+%% Created for Aral at 2023-11-18 09:32:42 +0300 
+
+
+%% Saved with string encoding Unicode (UTF-8) 
+
+@article{sparse-collection,
+author = {Davis, Timothy A. and Hu, Yifan},
+title = {The University of Florida Sparse Matrix Collection},
+year = {2011},
+issue_date = {November 2011},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {38},
+number = {1},
+issn = {0098-3500},
+url = {https://doi.org/10.1145/2049662.2049663},
+doi = {10.1145/2049662.2049663},
+abstract = {We describe the University of Florida Sparse Matrix Collection, a large and actively growing set of sparse matrices that arise in real applications. The Collection is widely used by the numerical linear algebra community for the development and performance evaluation of sparse matrix algorithms. It allows for robust and repeatable experiments: robust because performance results with artificially generated matrices can be misleading, and repeatable because matrices are curated and made publicly available in many formats. Its matrices cover a wide spectrum of domains, include those arising from problems with underlying 2D or 3D geometry (as structural engineering, computational fluid dynamics, model reduction, electromagnetics, semiconductor devices, thermodynamics, materials, acoustics, computer graphics/vision, robotics/kinematics, and other discretizations) and those that typically do not have such geometry (optimization, circuit simulation, economic and financial modeling, theoretical and quantum chemistry, chemical process simulation, mathematics and statistics, power networks, and other networks and graphs). We provide software for accessing and managing the Collection, from MATLAB™, Mathematica™, Fortran, and C, as well as an online search capability. Graph visualization of the matrices is provided, and a new multilevel coarsening scheme is proposed to facilitate this task.},
+journal = {ACM Trans. Math. Softw.},
+month = {dec},
+articleno = {1},
+numpages = {25},
+keywords = {multilevel algorithms, performance evaluation, Graph drawing, sparse matrices}
+}
+
+@misc{matrix-market,
+	url={https://math.nist.gov/MatrixMarket/formats.html},
+	title={Matrix Market: File Formats},
+	publisher={NIST},
+	year={2013},
+	month={8},
+	day={14}
+} 
+
+
+@book{chung1997spectral,
+  title={Spectral Graph Theory},
+  author={Chung, F.R.K.},
+  isbn={9780821803158},
+  lccn={96045112},
+  series={Conference Board of Mathematical Sciences},
+  url={https://books.google.com.tr/books?id=4IK8DgAAQBAJ},
+  year={1997},
+  publisher={American Mathematical Society}
+}
+
+@misc{gurobi,
+  author = {{Gurobi Optimization, LLC}},
+  title = {{Gurobi Optimizer Reference Manual}},
+  year = 2023,
+  url = {https://www.gurobi.com}
+}
+
+@book{elsner-partition,
+  title={Graph Partitioning: A Survey},
+  author={Elsner, Ulrich},
+  series={Preprint-Reihe des Chemnitzer SFB 393},
+  url={https://books.google.com.tr/books?id=cIsMHQAACAAJ},
+  month={12},
+  year={1997},
+  publisher={Technische Universität Chemnitz}
+}
+
+@inproceedings{konstantin-balanced-graph-part,
+	author = {Andreev, Konstantin and R\"{a}cke, Harald},
+	title = {Balanced Graph Partitioning},
+	year = {2004},
+	isbn = {1581138407},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/1007912.1007931},
+	doi = {10.1145/1007912.1007931},
+	abstract = {In this paper we consider the problem of (k, υ)-balanced graph partitioning - dividing the vertices of a graph into k almost equal size components (each of size less than υ • n<over>k) so that the capacity of edges between different components is minimized. This problem is a natural generalization of several other problems such as minimum bisection, which is the (2,1)-balanced partitioning problem. We present a bicriteria polynomial time approximation algorithm with an O(log2n)-approximation for any constant υ &gt; 1. For υ = 1 we show that no polytime approximation algorithm can guarantee a finite approximation ratio unless P=NP. Previous work has only considered the (k, υ)-balanced partitioning problem for υ ≥ 2.},
+	booktitle = {Proceedings of the Sixteenth Annual ACM Symposium on Parallelism in Algorithms and Architectures},
+	pages = {120-124},
+	numpages = {5},
+	keywords = {graph partitioning, bicriteria approximation, approximation algorithms},
+	location = {Barcelona, Spain},
+	series = {SPAA '04}
+}
+
+@inbook{buluc,
+      title={Recent Advances in Graph Partitioning}, 
+      author={Buluç, Aydın and Meyerhenke, Henning and Safro, Ilya and Sanders, Peter and Schulz, Christian},
+      editor={Kliemann, Lasse and Sanders, Peter},
+      bookTitle={Algorithm Engineering: Selected Results and Surveys},
+      pages={117-158},
+      day={3},
+      month={2},
+      year={2016},
+      publisher={Springer International Publishing},
+      eprint={1311.3144},
+      isbn={978-3-319-49487-6},
+      doi={10.1007/978-3-319-49487-6_4},
+      abstract={We survey recent trends in practical algorithms for balanced graph partitioning, point to applications and discuss future research directions.},
+      url={https://doi.org/10.1007/978-3-319-49487-6_4}
+}
+
+@inbook{branch-bound,
+author={Wolsey, Laurence A.},
+publisher = {John Wiley \& Sons, Ltd},
+isbn = {9781119606475},
+title = {Branch and Bound},
+booktitle = {Integer Programming},
+chapter = {7},
+pages = {113-138},
+doi = {https://doi.org/10.1002/9781119606475.ch7},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119606475.ch7},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781119606475.ch7},
+year = {2020},
+keywords = {implicit enumeration, pruning, tree storage, node selection, branching variable selection, strong branching, special ordered sets, preprocessing, presolve},
+abstract = {Introducing enumeration trees and the use of branch-and-bound to implicitly enumerate parts of such trees, a small example of linear programming based branch-and-bound is presented. We discuss how such trees are represented in practice as well as the important choices concerning node selection and branching variable selection that need to be made. This is followed by a brief description of other options typically available, such as choice of linear programming solver, use of special modeling functions such as special ordered set and user-set priorities. The last section is devoted to a crucial aspect, preprocessing or presolve, which is designed to take the original problem formulation and quickly simplify it by removing redundancies, tightening bounds, etc. so that the resulting formulation is smaller and tighter.}
+}
+
+@inbook{cutting-plane,
+author={Wolsey, Laurence A.},
+publisher = {John Wiley \& Sons, Ltd},
+isbn = {9781119606475},
+title = {Cutting Plane Algorithms},
+booktitle = {Integer Programming},
+chapter = {8},
+pages = {139-166},
+doi = {https://doi.org/10.1002/9781119606475.ch8},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119606475.ch8},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781119606475.ch8},
+year = {2020},
+keywords = {valid inequality, integer rounding inequality, Chvátal–Gomory inequality, cutting planes, fractional cutting plane algorithm, mixed integer rounding inequality, split cut, lift-and-project.},
+abstract = {We present examples of valid inequalities for some simple integer sets, followed by a description of the general Chvàtal–Gomory procedure for generating inequalities for integer programs. We then discuss how such valid inequalities can be used, and in particular Gomory's fractional cutting plane algorithm in which the inequalities are added as cuts on the fly. Similarly, valid inequalities for some simple mixed integer sets are presented, as well as a general family of cuts that can be viewed in three different ways, as mixed integer rounding cuts, Gomory mixed integer cuts, or split cuts. Finally, the lift-and-project algorithm that generates split cuts using disjunctive arguments is presented.}
+}
+
+@misc{dortogul,
+author = {Dörtoğul, Aral},
+title = {{Graph Partitioner}},
+url = {https://github.com/araldortogul/CMPE492_Partitioning_Undirected_Graphs}
+}
+
+@article{karisch,
+author = {Karisch, Stefan and Rendl, Franz and Clausen, Jens},
+year = {2000},
+month = {08},
+pages = {177-191},
+title = {Solving Graph Bisection Problems with Semidefinite Programming},
+volume = {12},
+journal = {INFORMS Journal on Computing},
+doi = {10.1287/ijoc.12.3.177.12637}
+}
+
+@article{armbruster,
+author = {Armbruster, Michael},
+year = {2007},
+month = {06},
+publisher={Technische Universität Chemnitz},
+title = {Branch-and-Cut for a Semidefinite Relaxation of Large-scale Minimum Bisection Problems},
+journal = {Fakultät für Mathematik der Technischen Universität Chemnitz}
+}
+
+@inproceedings{sellmann,
+author={Sellmann, Meinolf
+and Sensen, Norbert
+and Timajev, Larissa},
+editor={Di Battista, Giuseppe
+and Zwick, Uri},
+title={Multicommodity Flow Approximation Used for Exact Graph Partitioning},
+booktitle={Algorithms - ESA 2003},
+year={2003},
+publisher={Springer Berlin Heidelberg},
+address={Berlin, Heidelberg},
+pages={752-764},
+abstract={We present a fully polynomial-time approximation scheme for a multicommodity flow problem that yields lower bounds of the graph bisection problem. We compare the approximation algorithm with Lagrangian relaxation based cost-decomposition approaches and linear programming software when embedded in an exact branch \& bound approach for graph bisection. It is shown that the approximation algorithm is clearly superior in this context. Furthermore, we present a new practical addition to the approximation algorithm which improves its performance distinctly. Finally, we prove the performance of the graph bisection algorithm using multicommodity flow approximation by computing formerly unknown bisection widths of some DeBruijn- and Shuffle-Exchange-Graphs.},
+isbn={978-3-540-39658-1}
+}
+
+@inproceedings{sensen,
+author={Sensen, Norbert},
+editor={auf der Heide, Friedhelm Meyer},
+title={Lower Bounds and Exact Algorithms for the Graph Partitioning Problem Using Multicommodity Flows},
+booktitle={Algorithms --- ESA 2001},
+year={2001},
+publisher={Springer Berlin Heidelberg},
+address={Berlin, Heidelberg},
+pages={391--403},
+abstract={In this paper new and generalized lower bounds for the graph partitioning problem are presented. These bounds base on the well known lower bound of embedding a clique into the given graph with minimal congestion. This is equivalent to a multicommodity flow problem where each vertex sends a commodity of size one to every other vertex. Our new bounds use arbitrary multicommodity flow instances for the bound calculation, the critical point for the lower bound is the guaranteed cut flow of the instances. Furthermore, a branch{\&}bound procedure basing on these bounds is presented and finally it is shown that the new bounds are also useful for lower bounds on classes of graphs, e.g. the Butterfly and Benes graph.},
+isbn={978-3-540-44676-7}
+}
+
+
+@article{brunetta,
+author = {Brunetta, Lorenzo and Conforti, Michele and Rinaldi, Giovanni},
+year = {1997},
+month = {08},
+pages = {243-263},
+title = {A branch-and-cut algorithm for the equicut problem},
+volume = {77},
+journal = {Mathematical Programming},
+doi = {10.1007/BF02614373}
+}
+
+@article{ferreira,
+author = {Ferreira, C. and Martin, Alexander and Souza, Cid and Weismantel, R. and Wolsey, Laurence},
+year = {1998},
+month = {01},
+pages = {229-256},
+title = {The node capacitated graph partitioning problem: A computational study},
+volume = {81},
+journal = {Mathematical Programming},
+doi = {10.1007/BF01581107}
+}
+
+@article{lisser,
+author = {Lisser, Abdel and Rendl, Franz},
+year = {2003},
+month = {01},
+pages = {91-101},
+title = {Rendl, F.: Graph partitioning using linear and semidefinite programming. Math. Program. Ser. B 95(1), 91-101},
+volume = {95},
+journal = {Mathematical Programming},
+doi = {10.1007/s10107-002-0342-x}
+}
+
+@article{hager13,
+	abstract = {An exact algorithm is presented for solving edge weighted graph partitioning problems. The algorithm is based on a branch and bound method applied to a continuous quadratic programming formulation of the problem. Lower bounds are obtained by decomposing the objective function into convex and concave parts and replacing the concave part by an affine underestimate. It is shown that the best affine underestimate can be expressed in terms of the center and the radius of the smallest sphere containing the feasible set. The concave term is obtained either by a constant diagonal shift associated with the smallest eigenvalue of the objective function Hessian, or by a diagonal shift obtained by solving a semidefinite programming problem. Numerical results show that the proposed algorithm is competitive with state-of-the-art graph partitioning codes.},
+	author = {Hager, William W. and Phan, Dzung T. and Zhang, Hongchao},
+	date = {2013/02/01},
+	date-added = {2023-11-19 22:20:55 +0300},
+	date-modified = {2023-11-19 22:20:55 +0300},
+	doi = {10.1007/s10107-011-0503-x},
+	isbn = {1436-4646},
+	journal = {Mathematical Programming},
+	number = {1},
+	pages = {531--556},
+	title = {An exact algorithm for graph partitioning},
+	url = {https://doi.org/10.1007/s10107-011-0503-x},
+	volume = {137},
+	year = {2013},
+	bdsk-url-1 = {https://doi.org/10.1007/s10107-011-0503-x}}
+
+@article{hager99,
+  title={Graph Partitioning and Continuous Quadratic Programming},
+  author={William W. Hager and Ya S Krylyuk},
+  journal={SIAM J. Discret. Math.},
+  year={1999},
+  volume={12},
+  pages={500-523},
+  url={https://api.semanticscholar.org/CorpusID:14431056}
+}
+
+@article{feldmann,
+author = {Feldmann, Andreas},
+year = {2011},
+month = {11},
+pages = {},
+title = {Fast Balanced Partitioning Is Hard Even on Grids and Trees},
+volume = {485},
+isbn = {978-3-642-32588-5},
+journal = {Theoretical Computer Science},
+doi = {10.1016/j.tcs.2013.03.014}
+}
+
+

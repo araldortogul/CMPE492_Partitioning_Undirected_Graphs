@@ -1,0 +1,39 @@
+usage: ./graph_partitioner.py [-h] [-i INPUT FILE DIRECTORY] [-r]
+                              [-n NUMBER OF RANDOM GRAPHS TO PARTITION]
+                              [-s SIZE OF THE RANDOM GRAPHS TO PARTITION]
+                              [-d DENSITY OF THE RANDOM GRAPHS TO PARTITION]
+                              [-l LOG FILE DIRECTORY] [-w] [-p]
+                              [-pDir PLOTDIR] [--version]
+
+Bipartition undirected graphs with Gurobi.
+
+options:
+  -h, --help            show this help message and exit
+  -i , --input INPUT FILE DIRECTORY
+                        Specify the input file directory for your graph. It MUST be a Matrix Market File (.mtx), and MUST NOT include any negative numbers in the adjacency matrix. Graph partitioner works both with a weighted adjacency matrix and an unweighted adjacency matrix.
+
+  -r, --random          Provide this flag if you want to experiment with random Erdos-Renyi graphs. If you also provide -i argument,the program will first partition the graph in the input file, then partition the random graphs.
+
+  -n, --number NUMBER OF RANDOM GRAPHS TO PARTITION (Default: 1)
+                        Number of random graphs to partition. Need to be specified if -r is given.
+
+  -s, --size SIZE OF THE NUMBER OF RANDOM GRAPHS TO PARTITION (Default: 10)
+                        Size (number of vertices) of the random graphs. Need to be specified if -r is given.
+
+  -d, --density DENSITY OF THE RANDOM GRAPHS TO PARTITION (Default: 0.1)
+                        Density of the random graphs. Need to be specified if -r is given.
+
+  -l, --log LOG FILE DIRECTORY
+                        Provide a log file name to log Gurobi's optimization process.
+
+  -w, --weighted        Provide this flag if you want your random graphs to be weighted. You don't need this flag for your input graph (-i).
+
+  -p, --plot            Provide this flag if you want your graphs to be plotted.
+
+  -pDir, --plotDir PLOTDIR (Default: The directory of the program.)
+                        Provide a directory to store the plots. Needs -p flag
+
+  --version             show program's version number and exit
+
+All rights reserved. For more info about the partitioning algorithm, please refer to the project report found in
+    https://github.com/araldortogul/CMPE492_Partitioning_Undirected_Graphs
